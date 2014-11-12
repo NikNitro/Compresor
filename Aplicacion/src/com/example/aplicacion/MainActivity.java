@@ -15,25 +15,29 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	private Button open_file_explorer;
 	private Button comprimir;
-	private TextView ruta;
+	public static TextView ruta;
 	private String std;
+	public static  String prueba;
+	private TextView informacion;
+	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    
+    	super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        ruta = (TextView)findViewById(R.id.textView1);
-        std = ruta.getText().toString();
-        System.out.println(std);
+              
+        ruta = (TextView)findViewById(R.id.txtNombreArchivo);
+        informacion = (TextView)findViewById(R.id.textView2);
         
         comprimir = (Button)findViewById(R.id.btnComprimir);
         comprimir.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
+				std = ruta.getText().toString();
+				informacion.setText("Información: " +std);
 				new Comprimir(std, 0);
-				
 			}
 		});
         
@@ -66,6 +70,6 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-    
+
 
 }

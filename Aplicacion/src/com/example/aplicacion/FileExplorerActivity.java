@@ -91,6 +91,7 @@ public class FileExplorerActivity extends ListActivity {
     {
       archivo_seleccionado = file.getAbsolutePath();
       archivo_nombre = file.getName();
+      MainActivity.ruta.setText(archivo_seleccionado);
       finish();
     }
   }
@@ -101,10 +102,13 @@ public class FileExplorerActivity extends ListActivity {
        if (data.hasExtra("archivo_seleccionado")) {
          archivo_seleccionado = data.getExtras().getString("archivo_seleccionado");
          archivo_nombre = data.getExtras().getString("archivo_nombre");
-      //   archivo.setText(archivo_nombre);					<--- archivo not in scope
+       //MainActivity.ruta.setText(archivo_nombre);				//	<--- archivo not in scope
+        // MainActivity.ruta = (TextView)archivo_nombre;
+        // MainActivity.ruta = (TextView)findViewById(R.id.textView1);
+
        }
      }
    }
-
+   
 
 }
