@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.aplicacion.BinaryIn;
+
 
 public class lwz {
 	private String texto;
@@ -15,6 +17,7 @@ public class lwz {
 	public lwz (String nombreArchivo) {
 		codificacion = new ArrayList<Integer>();
 		diccionario  = new ArrayList<String>(); 
+		descodificacion = "";
 		try {
 			BinaryIn In = new BinaryIn(nombreArchivo);
 			texto = In.readString();

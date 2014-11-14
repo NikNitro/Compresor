@@ -1,29 +1,40 @@
 package com.example.aplicacion;
 
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
 	private Button open_file_explorer;
 	private Button comprimir;
+	private Button descomprimir;
 	public static TextView ruta;
 	private String std;
 	public static  String prueba;
-	private TextView informacion;
+	public static TextView informacion;
 	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-    
+    	
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
               
@@ -35,9 +46,22 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+			
 				std = ruta.getText().toString();
 				informacion.setText("Información: " +std);
-				new Comprimir(std, 0);
+				new Comprimir(std, 0, 1);
+			}
+		});
+        
+        descomprimir = (Button)findViewById(R.id.btnDescomprimir);
+        descomprimir.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			
+				std = ruta.getText().toString();
+				informacion.setText("Información: " +std);
+				new Comprimir(std, 0, 0);
 			}
 		});
         
@@ -50,7 +74,18 @@ public class MainActivity extends Activity {
           
         });
     }
-
+    public boolean existsFile(String fileName) {
+    	Log.i("metodo", "exits");
+    	if(fileList().length == 0){
+    		Log.i("metodo", "vacio");
+    	}
+        for (String tmp : fileList()) {
+        	Log.i("fichero1", tmp);
+            if (tmp.equals(fileName))
+                return true;
+        }
+        return false;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
