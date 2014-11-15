@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
 	private Button open_file_explorer;
 	private Button comprimir;
 	private Button descomprimir;
+	private Button abrir;
 	public static TextView ruta;
 	private String std;
 	public static  String prueba;
@@ -73,6 +74,24 @@ public class MainActivity extends Activity {
           }
           
         });
+        
+        abrir = (Button)findViewById(R.id.btnAbrir);
+        abrir.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Este boton mostrará el archivo.
+	        	std = ruta.getText().toString();
+	        	
+	        	
+	        	
+	        	///Para de mientras
+				Toast texto1 = Toast.makeText(getBaseContext(), "Aún no implementado.", Toast.LENGTH_SHORT);
+	        	texto1.show();
+	        	
+				
+			}
+		});
     }
     public boolean existsFile(String fileName) {
     	Log.i("metodo", "exits");

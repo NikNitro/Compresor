@@ -7,5 +7,9 @@
     <string name="seleccionar">Seleccione archivo:</string>
     <string name="buscar">Buscar</string>
     <string name="resultado">Aplicacion creada por Cristina y Adrián con finalidad estudiantil.</string>
+    <string name="rutaDelArchivo">Ruta del archivo</string>
+    <string name="Descomprimir">Descomprimir</string>
+    <string name="Comprimir">Comprimir</string>
+    <string name="Abrir">Abrir</string>
 
 </resources>

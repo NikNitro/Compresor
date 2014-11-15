@@ -25,16 +25,16 @@
         android:layout_weight="1"
         android:minWidth="200dp"
         android:padding="15dp"
-        android:text="Ruta del archivo"
+        android:text="@string/rutaDelArchivo"
         android:textSize="@dimen/aaa" />
 
     <Button
         android:id="@+id/btnBuscar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtNombreArchivo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/txtNombreArchivo"
-        android:layout_weight="1"
         android:padding="10dp"
         android:text="@string/buscar"
         android:textColor="@android:color/black" />
@@ -47,23 +47,20 @@
         android:layout_alignBottom="@+id/btnComprimir"
         android:layout_alignRight="@+id/btnBuscar"
         android:layout_below="@+id/btnBuscar"
-        android:layout_weight="1"
-        android:padding="10dp"
-        android:text="Descomprimir"
+        android:padding="9dp"
+        android:text="@string/Descomprimir"
         android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnComprimir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnBuscar"
         android:layout_below="@+id/btnBuscar"
-        android:layout_toLeftOf="@+id/btnDescomprimir"
-        android:layout_weight="1"
-        android:padding="10dp"
-        android:text="Comprimir"
+        android:layout_alignLeft="@+id/btnBuscar"
+        android:padding="9dp"
+        android:text="@string/Comprimir"
         android:textColor="@android:color/white" />
-
+    
     <TextView
         android:id="@+id/textView2"
         android:layout_width="fill_parent"
@@ -74,5 +71,15 @@
         android:layout_marginBottom="21dp"
         android:scrollbars="vertical"
         android:text="@string/resultado" />
+
+    <Button
+        android:id="@+id/btnAbrir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:padding="5dp"
+        android:layout_toRightOf="@+id/btnComprimir"
+        android:layout_toLeftOf="@+id/btnDescomprimir"
+        android:text="@string/Abrir" />
 
 </RelativeLayout>

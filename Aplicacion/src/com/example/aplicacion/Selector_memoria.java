@@ -40,7 +40,7 @@ public class Selector_memoria extends ListActivity{
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					ruta = "/storage/emulated/0/";
+					ruta = "/storage/sdcard0/";
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
 					
