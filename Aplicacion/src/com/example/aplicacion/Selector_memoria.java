@@ -15,6 +15,11 @@ public class Selector_memoria extends ListActivity{
 	public static String ruta;
 	 @Override
 	   public void onCreate(Bundle savedInstanceState) {
+
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.selector_memoria);    
+         
+		 
 	          raiz = (Button)findViewById(R.id.btnRaiz);
 	          raiz.setOnClickListener(new OnClickListener() {
 				
