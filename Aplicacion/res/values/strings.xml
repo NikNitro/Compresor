@@ -11,5 +11,8 @@
     <string name="Descomprimir">Descomprimir</string>
     <string name="Comprimir">Comprimir</string>
     <string name="Abrir">Abrir</string>
+    <string name="Huffman">Huffman</string>
+    <string name="LZW">LZW</string>
+    <string name="Propio">Propio</string>
 
 </resources>

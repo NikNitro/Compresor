@@ -22,7 +22,6 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="14dp"
-        android:layout_weight="1"
         android:minWidth="200dp"
         android:padding="15dp"
         android:text="@string/rutaDelArchivo"
@@ -65,9 +64,9 @@
         android:id="@+id/textView2"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignLeft="@+id/btnComprimir"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/btnComprimir"
+        android:layout_alignLeft="@+id/rdgGrupo"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/rdgGrupo"
         android:layout_marginBottom="21dp"
         android:scrollbars="vertical"
         android:text="@string/resultado" />
@@ -76,10 +75,41 @@
         android:id="@+id/btnAbrir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
+        android:layout_below="@+id/btnBuscar"
         android:padding="5dp"
         android:layout_toRightOf="@+id/btnComprimir"
         android:layout_toLeftOf="@+id/btnDescomprimir"
         android:text="@string/Abrir" />
+    
+    <RadioGroup
+        android:id="@+id/rdgGrupo"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/rBHuffman"
+        android:layout_below="@+id/btnComprimir"
+        android:layout_alignLeft="@+id/btnComprimir"
+        android:layout_alignRight="@+id/btnDescomprimir"
+        android:layout_span="3">
+    <RadioButton
+        android:id="@+id/rBHuffman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Huffman" />
 
+       <RadioButton
+           android:id="@+id/rBLZW"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/LZW" />
+
+       <RadioButton
+           android:id="@+id/rBPropio"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/Propio" />
+       
+       </RadioGroup>
+
+       
 </RelativeLayout>
