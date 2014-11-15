@@ -14,6 +14,11 @@ public class Selector_memoria extends ListActivity{
 	private Button memInt;
 	private Button memSD;
 	public static String ruta;
+	
+	//El finish es para que al elegir el archivo vaya directamente a la principal y no pase de nuevo por esta.
+	   public void finish() {
+	       super.finish();
+	   }
 	 @Override
 	   public void onCreate(Bundle savedInstanceState) {
 
@@ -30,7 +35,7 @@ public class Selector_memoria extends ListActivity{
 					ruta = "/";
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
-					
+					finish();					
 				}
 			});
 	          
@@ -43,7 +48,7 @@ public class Selector_memoria extends ListActivity{
 					ruta = "/storage/sdcard0/";
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
-					
+					finish();
 				}
 			});  
 	          
@@ -56,7 +61,7 @@ public class Selector_memoria extends ListActivity{
 					ruta = "/storage/extSdCard/";
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
-					
+					finish();					
 				}
 			});
 	   }
