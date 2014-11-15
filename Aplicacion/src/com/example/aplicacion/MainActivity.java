@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
         open_file_explorer = (Button)findViewById(R.id.btnBuscar);
         open_file_explorer.setOnClickListener(new OnClickListener() {      
           public void onClick(View v) {
-            Intent file_explorer = new Intent(MainActivity.this,FileExplorerActivity.class);
+            Intent file_explorer = new Intent(MainActivity.this,Selector_memoria.class);
             startActivityForResult(file_explorer, 555);// <-- ¿?
           }
           

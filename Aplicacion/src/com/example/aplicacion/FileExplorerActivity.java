@@ -17,7 +17,7 @@ public class FileExplorerActivity extends ListActivity {
 
    private List<String> item = null;
    private List<String> path = null;
-   private String root="/";
+   private String root=Selector_memoria.ruta;
    private TextView myPath;
    private String archivo_seleccionado;
    private String archivo_nombre;
