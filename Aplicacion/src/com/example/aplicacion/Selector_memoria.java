@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Selector_memoria extends ListActivity{
 	private Button raiz;
@@ -39,7 +40,7 @@ public class Selector_memoria extends ListActivity{
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					ruta = "/";
+					ruta = "/storage/emulated/0/";
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
 					
@@ -52,7 +53,7 @@ public class Selector_memoria extends ListActivity{
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					ruta = "/";
+					ruta = "/storage/extSdCard/";
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
 					

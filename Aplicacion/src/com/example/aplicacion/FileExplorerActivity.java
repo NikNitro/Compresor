@@ -3,6 +3,7 @@ package com.example.aplicacion;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FileExplorerActivity extends ListActivity {
 
@@ -35,7 +37,14 @@ public class FileExplorerActivity extends ListActivity {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.main_file);          
           myPath = (TextView)findViewById(R.id.path);
-          getDir(root);
+          
+          //Por si no existe tarjeta SD que no explote.
+          try {
+        	  getDir(root);
+          } catch(NullPointerException e) {
+        	  Toast texto1 = Toast.makeText(getBaseContext(), "No hay SD", Toast.LENGTH_SHORT);
+        	  texto1.show();
+          }
    }
 
    private void getDir(String dirPath){
