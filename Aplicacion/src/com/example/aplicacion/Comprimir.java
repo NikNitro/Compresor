@@ -3,9 +3,6 @@ package com.example.aplicacion;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.InputMismatchException;
-
-import android.os.Environment;
 import android.util.Log;
 
 public class Comprimir {
@@ -18,13 +15,24 @@ public class Comprimir {
 	 * @param std
 	 * @param aux  0 para Huffman, 1 para...
 	 */
-	public Comprimir(String std, int aux, int c) {
+	public Comprimir(String std, int aux, int c, String boton) {
 		Log.i("std", std);
+		
+		/*
 		switch(aux) {
 			case 0 : Huffman(std, c); break;
 			default: 
 				throw new InputMismatchException("Opción no soportada");
 		}
+		*/
+		if(boton.equals("Huffman")){
+			Huffman(std, c);
+		}else if (boton.equals("LZW")){
+			
+		}else{
+			
+		}
+		
 	}
 	
 	private void Huffman(String std, int c)  {
@@ -43,19 +51,9 @@ public class Comprimir {
 				primero = new File(std);
 				
 				myFile = new File(nombre);
-				/*
-				primero = new File(std);
-				nombre = "/"+primero.getName().substring(0, primero.getName().length()-4);//vale si termina .txt
-				
-				nombre = "storage/sdcard0/Compresor"+nombre;
-				Log.i("nombre", nombre);
-				//nombre = "/mnt/extSdCard/Alice";
-				myFile = new File(nombre+"-compress.txt");
-			*/
 				try {
 					myFile.createNewFile();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					Log.i("no se puede crear", e.getMessage());
 				}
 
@@ -88,7 +86,6 @@ public class Comprimir {
 				try {
 					myFile.createNewFile();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				time1 = System.nanoTime();
@@ -119,4 +116,3 @@ public class Comprimir {
 	public static void main(String[] args) {}
 
 }
-

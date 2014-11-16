@@ -36,10 +36,10 @@ public final class R {
         public static final int btnMemSD=0x7f08000f;
         public static final int btnRaiz=0x7f08000d;
         public static final int path=0x7f08000b;
-        public static final int rBHuffman=0x7f080006;
+        public static final int rBHuffman=0x7f080008;
         public static final int rBLZW=0x7f080009;
         public static final int rBPropio=0x7f08000a;
-        public static final int rdgGrupo=0x7f080008;
+        public static final int rdgGrupo=0x7f080006;
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f080005;
         public static final int txtNombreArchivo=0x7f080001;

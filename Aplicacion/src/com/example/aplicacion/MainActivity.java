@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
 	public static TextView informacion;
 	private Button abrir;
 	private RadioGroup rg;
-	 private RadioButton rb;
+	private RadioButton rb;
 
 	
     @Override
