@@ -68,7 +68,12 @@ public class MainActivity extends Activity {
 					informacion.setText("Información: " +std);
 					int seleccionado = rg.getCheckedRadioButtonId();
 					rb = (RadioButton) findViewById(seleccionado);
-					new Comprimir(std, 0, 1, rb.getText().toString());
+					try {
+						new Comprimir(std, 0, 1, rb.getText().toString());
+					} catch (DescomprimirException e) {
+						Toast  texto1 = Toast.makeText(getBaseContext(), "No puede descomprimirse.", Toast.LENGTH_SHORT);
+			        	texto1.show();
+					}
 	        	}
 
 			}
@@ -88,7 +93,12 @@ public class MainActivity extends Activity {
 					informacion.setText("Información: " +std);
 					int seleccionado = rg.getCheckedRadioButtonId();
 					rb = (RadioButton) findViewById(seleccionado);
-					new Comprimir(std, 0, 0, rb.getText().toString());
+					try {
+						new Comprimir(std, 0, 0, rb.getText().toString());
+					} catch (DescomprimirException e) {
+						Toast  texto1 = Toast.makeText(getBaseContext(), "No puede descomprimirse.", Toast.LENGTH_SHORT);
+			        	texto1.show();
+					}
 	        	}
 
 			}

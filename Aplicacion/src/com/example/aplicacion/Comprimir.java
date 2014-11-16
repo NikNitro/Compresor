@@ -14,8 +14,9 @@ public class Comprimir {
 	 * 
 	 * @param std
 	 * @param aux  0 para Huffman, 1 para...
+	 * @throws DescomprimirException 
 	 */
-	public Comprimir(String std, int aux, int c, String boton) {
+	public Comprimir(String std, int aux, int c, String boton) throws DescomprimirException {
 		Log.i("std", std);
 		
 		/*
@@ -35,7 +36,7 @@ public class Comprimir {
 		
 	}
 	
-	private void Huffman(String std, int c)  {
+	private void Huffman(String std, int c) throws DescomprimirException  {
 		Huffman h = new Huffman();
 		String nombre, extension;
 		File primero;
@@ -104,6 +105,8 @@ public class Comprimir {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 				Log.i("fichero no existe", std);
+			} catch (StackOverflowError e) {
+				throw new DescomprimirException();
 			}
 		}
 
