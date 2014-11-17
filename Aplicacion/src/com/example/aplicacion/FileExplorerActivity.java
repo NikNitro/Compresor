@@ -8,6 +8,7 @@ import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -36,7 +37,8 @@ public class FileExplorerActivity extends ListActivity {
 	          super.onCreate(savedInstanceState);
 	          setContentView(R.layout.main_file);          
 	          myPath = (TextView)findViewById(R.id.path);
-	          getDir(root);
+	          //getDir(root);
+
 	          try {
 	        	  getDir(root);
 	          } catch(NullPointerException e) {
@@ -51,6 +53,7 @@ public class FileExplorerActivity extends ListActivity {
 	       path = new ArrayList<String>();
 	       File f = new File(dirPath);
 	       File[] files = f.listFiles();
+	     
 	       
 	       if(!dirPath.equals(root)){
 	         item.add(root);
@@ -58,20 +61,26 @@ public class FileExplorerActivity extends ListActivity {
 	         item.add("../");
 	         path.add(f.getParent());
 	       }
+	      
 
 	       for(int i=0; i < files.length; i++){
 	         File file = files[i];
+	    
 	         path.add(file.getPath());
+	       
 	         if(file.isDirectory())
 	          item.add(file.getName() + "/");
 	         else
 	          item.add(file.getName());
+
 	       }
+	       
 
 	       ArrayAdapter<String> fileList =
 	          new ArrayAdapter<String>(this, R.layout.row_file, item);
-
+	     
 	       setListAdapter(fileList);
+	     
 
 	   }
 
@@ -86,7 +95,7 @@ public class FileExplorerActivity extends ListActivity {
 	      else
 	      {
 	      new AlertDialog.Builder(this)
-	      .setTitle("[" + file.getName() + "] folder no puede ser leido!")
+	      .setTitle("Directorio [" + file.getName() + "] no puede ser leído.")
 	      .setPositiveButton("OK", 
 	      new DialogInterface.OnClickListener() {
 	         @Override

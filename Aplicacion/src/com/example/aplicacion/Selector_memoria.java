@@ -1,8 +1,11 @@
 package com.example.aplicacion;
 
+import java.io.File;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,18 +17,13 @@ public class Selector_memoria extends ListActivity{
 	private Button memInt;
 	private Button memSD;
 	public static String ruta;
-	
-	//El finish es para que al elegir el archivo vaya directamente a la principal y no pase de nuevo por esta.
-	   public void finish() {
-	       super.finish();
-	   }
 	 @Override
 	   public void onCreate(Bundle savedInstanceState) {
-
-         super.onCreate(savedInstanceState);
-         setContentView(R.layout.selector_memoria);    
-         
 		 
+         super.onCreate(savedInstanceState);
+        
+         setContentView(R.layout.selector_memoria);   
+       
 	          raiz = (Button)findViewById(R.id.btnRaiz);
 	          raiz.setOnClickListener(new OnClickListener() {
 				
@@ -35,7 +33,7 @@ public class Selector_memoria extends ListActivity{
 					ruta = "/";
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
-					finish();					
+					finish();
 				}
 			});
 	          
@@ -49,6 +47,7 @@ public class Selector_memoria extends ListActivity{
 					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
 					startActivityForResult(selector,  30);
 					finish();
+					
 				}
 			});  
 	          
@@ -59,9 +58,17 @@ public class Selector_memoria extends ListActivity{
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					ruta = "/storage/extSdCard/";
-					Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
-					startActivityForResult(selector,  30);
-					finish();					
+					File dir = new File(ruta);
+					if(dir.exists() && (dir.canRead() || dir.canWrite())){
+						Intent selector = new Intent(Selector_memoria.this, FileExplorerActivity.class);
+						startActivityForResult(selector,  30);
+						finish();
+					}else{
+			        	  Toast texto1 = Toast.makeText(getBaseContext(), "No dispone de tarjeta SD", Toast.LENGTH_SHORT);
+			        	  texto1.show();
+					}
+
+
 				}
 			});
 	   }
